@@ -1,11 +1,9 @@
-
-
 const App = () => {
   return (
     <div>
-      hello world
+      <div>hello mr world</div>
     </div>
   );
-}
+};
 
 export default App;
