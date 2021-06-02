@@ -1,11 +1,11 @@
 import GlobalStyles from './GlobalStyles'
 import styled from 'styled-components'
 import NavBar from './Components/NavBar'
-import Swipe from './Components/Card/Swipe'
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { blue, red } from '@material-ui/core/colors'
-import Tilt from './Components/Card/Tilt'
-import Cards from './Components/Card/Cards'
+import { Route, Switch } from 'react-router-dom'
+import Home from './Components/Home/Home'
+import TiltComponent from './Components/Cards/Tilt'
 
 const theme = createMuiTheme({
   palette: {
@@ -20,22 +20,18 @@ const theme = createMuiTheme({
 
 const Application = styled.div`
   //remove this css
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  margin-top: 80px;
 `
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
+      <NavBar />
       <Application>
-        <NavBar />
-
-        <Cards />
-        {/* <Tilt />
-        <Swipe /> */}
+        <Switch>
+          <Route exact path='/' component={Home} />
+        </Switch>
+        <TiltComponent />
       </Application>
       <GlobalStyles />
     </ThemeProvider>

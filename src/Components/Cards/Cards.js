@@ -4,7 +4,7 @@ import Card from './Card'
 const Cards = () => {
   return (
     <div>
-      <Card info={'hello'} />
+      <Card info={{ frontSideText: 'hello', backSideText: 'hola' }} />
       {/* <Card data={'hola'} /> */}
     </div>
   )

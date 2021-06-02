@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import VanillaTilt from 'vanilla-tilt'
-import Swipe from './Swipe'
 
 function Tilt(props) {
   const { options, ...rest } = props
@@ -16,7 +15,7 @@ function Tilt(props) {
 
 const Box = styled.div`
   background: grey;
-  height: 400px;
+  height: 1000px;
   width: 300px;
 `
 
@@ -48,7 +47,7 @@ const TiltComponent = (props) => {
 
   return (
     <Tilt className='box' options={options}>
-      <Swipe info={props.info} />
+      <Box>hej hej</Box>
     </Tilt>
   )
 }

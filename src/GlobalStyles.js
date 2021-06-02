@@ -1,9 +1,9 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
     html { 
         scroll-behavior: smooth; 
-        scroll-padding: 100px;
+        //scroll-padding: 100px;
     }
 
     * {
@@ -11,6 +11,6 @@ const GlobalStyles = createGlobalStyle`
         margin: 0px;
         padding: 0px;
     }
-`;
+`
 
-export default GlobalStyles;
+export default GlobalStyles

@@ -1,8 +1,8 @@
 import React from 'react'
-import Tilt from './Tilt'
+import Swipe from './Swipe'
 
 const Card = (props) => {
-  return <Tilt info={props.info} />
+  return <Swipe info={props.info} />
 }
 
 export default Card

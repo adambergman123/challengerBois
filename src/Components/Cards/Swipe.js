@@ -1,4 +1,7 @@
 import React from 'react'
+import CardFront from './CardFront'
+import CardBack from './CardBack'
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -23,37 +26,15 @@ const Swipe = (props) => {
         effect={'flip'}
         grabCursor={true}
         pagination={true}
-        navigation={false}
+        navigation={true}
         loop={true}
         className='mySwiper'
       >
         <SwiperSlide>
-          <img src='https://swiperjs.com/demos/images/nature-1.jpg' alt='' />
-          <div
-            style={{
-              backgroundColor: 'black',
-              height: '90px',
-              color: 'white',
-              borderRadius: '0 0 10px 10px',
-            }}
-          >
-            {props.info}
-          </div>
+          <CardFront info={props.info} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src='https://swiperjs.com/demos/images/nature-2.jpg' alt='' />
-          <div
-            style={{
-              backgroundColor: 'black',
-              height: '90px',
-              color: 'white',
-              borderRadius: '0 0 10px 10px',
-            }}
-          >
-            Kung på kayn
-            <br />
-            Platinum
-          </div>
+          <CardBack info={props.info} />
         </SwiperSlide>
       </Swiper>
     </>

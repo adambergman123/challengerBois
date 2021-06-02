@@ -1,0 +1,47 @@
+@font-face {
+  src: url('../../Fonts/Friz\ Quadrata\ Regular.ttf');
+  font-family: league;
+}
+
+@keyframes animate {
+  0% {
+    color: '#0e3742';
+  }
+
+  100% {
+    color: #fff;
+    text-shadow: 0 0 10px #ffdc00, 0 0 20px #ffdc00, 0 0 40px #ffdc00,
+      0 0 80px #ffdc00, 0 0 160px #ffdc00;
+  }
+}
+
+.layer-bg {
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/272781/ilu_bg.jpg');
+  background-position: bottom center;
+  background-size: auto;
+}
+.layer1 {
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/272781/ilu_03.png');
+  background-position: left bottom;
+  background-size: auto;
+}
+.layer2 {
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/272781/ilu_02.png');
+  background-position: bottom center;
+  background-size: auto;
+}
+.layer3 {
+  background-image: url('../../images/ilu_adam.png');
+  background-position: 103% 135%;
+  background-size: 700px;
+}
+.layer4 {
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/272781/ilu_overlay.png');
+  background-position: bottom center;
+  background-size: auto;
+}
+.layer5 {
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/272781/ilu_01.png');
+  background-position: bottom center;
+  background-size: auto;
+}
