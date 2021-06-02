@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 const NavBar = () => {
-  return <div>hej</div>;
-};
+  return <div>navbar</div>
+}
 
-export default NavBar;
+export default NavBar
