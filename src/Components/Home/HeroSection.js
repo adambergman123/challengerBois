@@ -8,6 +8,13 @@ const Hero = styled.div`
   overflow: hidden;
   position: relative;
   margin-top: -80px;
+
+  @media screen and (max-width: 925px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 320px;
+  }
 `
 
 const TitleWrapper = styled.div`
@@ -20,6 +27,10 @@ const TitleWrapper = styled.div`
   justify-content: center;
   opacity: ${({ titleOpacity }) => titleOpacity};
   transition: opacity 0.6s ease-in-out;
+
+  @media screen and (max-width: 925px) {
+    margin: 0;
+  }
 `
 
 const Title = styled.div`
@@ -34,11 +45,19 @@ const Title = styled.div`
   animation-fill-mode: forwards;
   transition: opacity 0.6s ease-in-out;
   -webkit-transform: translate3d(0, 0, 0);
+
+  @media screen and (max-width: 925px) {
+    font-size: 2rem;
+  }
 `
 
 const StyledLink = styled(Link)`
   padding: 30px;
 `
+
+const Parallax = styled.div``
+
+const HeroMobile = styled.div``
 
 const Layer = styled.div`
   background-repeat: no-repeat;
@@ -104,30 +123,33 @@ const HeroSection = () => {
           </StyledLink>
         </TitleWrapper>
 
-        <Layer
-          className='layer-bg'
-          style={{ transform: `translateY(-${offsetY * 0.1}px)` }}
-        ></Layer>
-        <Layer
-          className='layer1'
-          style={{ transform: `translateY(-${offsetY * 0.2}px)` }}
-        ></Layer>
-        <Layer
-          className='layer2'
-          style={{ transform: `translateY(-${offsetY * 0.5}px)` }}
-        ></Layer>
-        <Layer
-          className='layer3'
-          style={{ transform: `translateY(-${offsetY * 0.8}px)` }}
-        ></Layer>
-        <Layer
-          className='layer4'
-          style={{ transform: `translateY(-${offsetY * 0.85}px)` }}
-        ></Layer>
-        <Layer
-          className='layer5'
-          style={{ transform: `translateY(-${offsetY * 1.0}px)` }}
-        ></Layer>
+        <Parallax id='parallax'>
+          <Layer
+            className='layer-bg'
+            style={{ transform: `translateY(-${offsetY * 0.1}px)` }}
+          ></Layer>
+          <Layer
+            className='layer1'
+            style={{ transform: `translateY(-${offsetY * 0.2}px)` }}
+          ></Layer>
+          <Layer
+            className='layer2'
+            style={{ transform: `translateY(-${offsetY * 0.5}px)` }}
+          ></Layer>
+          <Layer
+            className='layer3'
+            style={{ transform: `translateY(-${offsetY * 0.8}px)` }}
+          ></Layer>
+          <Layer
+            className='layer4'
+            style={{ transform: `translateY(-${offsetY * 0.85}px)` }}
+          ></Layer>
+          <Layer
+            className='layer5'
+            style={{ transform: `translateY(-${offsetY * 1.0}px)` }}
+          ></Layer>
+        </Parallax>
+        <HeroMobile id='heroMobile' />
       </Hero>
       <Background />
       <div id='dummy'>dummydum</div>
