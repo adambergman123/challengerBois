@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-scroll'
 import styled from 'styled-components'
 import './HeroSection.css'
 
@@ -9,11 +10,19 @@ const Hero = styled.div`
   margin-top: -80px;
 `
 
-const Title = styled.div`
-  color: #130d0a;
+const TitleWrapper = styled.div`
   position: fixed;
   margin-top: 24vh;
   margin-left: 16vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: ${({ titleOpacity }) => titleOpacity};
+`
+
+const Title = styled.div`
+  color: #130d0a;
   font-family: league;
   font-weight: 800;
   font-size: 72px;
@@ -22,7 +31,10 @@ const Title = styled.div`
   outline: none;
   animation: animate 2.5s ease-in-out;
   animation-fill-mode: forwards;
+  transition: opacity 0.6s ease-in-out;
 `
+
+const StyledLink = styled(Link)``
 
 const Layer = styled.div`
   background-repeat: no-repeat;
@@ -49,7 +61,7 @@ const HeroSection = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Tillfällig lösning: Låser scrollen i början så det laggar mindre.
+  //Tillfällig lösning: Låser scrollen i början så det laggar mindre.
   // useEffect(() => {
   //   document.body.style.overflow = 'hidden'
   //   setTimeout(() => {
@@ -57,18 +69,39 @@ const HeroSection = () => {
   //   }, 2500)
   // }, [])
 
-  console.log(window.scrollY)
+  const [titleOpacity, setTitleOpacity] = useState(1)
+
+  const changeOpacity = () => {
+    if (window.scrollY >= 500) {
+      setTitleOpacity(0)
+    } else {
+      setTitleOpacity(1)
+    }
+  }
+
+  window.addEventListener('scroll', changeOpacity)
 
   return (
     <>
       <Hero id='hero'>
-        <Title
+        <TitleWrapper
+          titleOpacity={titleOpacity}
           style={{
             transform: `translateY(-${offsetY * 0.2}px)`,
           }}
         >
-          CHALLENGER BOIS
-        </Title>
+          <Title>CHALLENGER BOIS</Title>
+          <Link
+            to='dummy'
+            spy={true}
+            smooth={true}
+            duration={1000}
+            onClick={() => console.log('clicked')}
+          >
+            Explore
+          </Link>
+        </TitleWrapper>
+
         <Layer
           className='layer-bg'
           style={{ transform: `translateY(-${offsetY * 0.1}px)` }}
@@ -95,6 +128,7 @@ const HeroSection = () => {
         ></Layer>
       </Hero>
       <Background />
+      <div id='dummy'>dummydum</div>
     </>
   )
 }
