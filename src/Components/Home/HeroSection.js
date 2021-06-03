@@ -12,15 +12,15 @@ const Hero = styled.div`
 const Title = styled.div`
   color: #130d0a;
   position: fixed;
-  margin-top: 240px;
-  margin-left: 240px;
+  margin-top: 24vh;
+  margin-left: 16vw;
   font-family: league;
   font-weight: 800;
   font-size: 72px;
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
   line-height: 0.7em;
   outline: none;
-  animation: animate 4.5s linear;
+  animation: animate 2.5s ease-in-out;
   animation-fill-mode: forwards;
 `
 
@@ -47,6 +47,13 @@ const HeroSection = () => {
     window.addEventListener('scroll', handleScroll)
 
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    setTimeout(() => {
+      document.body.style.overflowY = 'scroll'
+    }, 2500)
   }, [])
 
   return (

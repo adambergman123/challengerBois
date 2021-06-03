@@ -8,6 +8,12 @@
     color: '#0e3742';
   }
 
+  80% {
+    color: #fff;
+    text-shadow: 0 0 20px #ffdc00, 0 0 40px #ffdc00, 0 0 80px #ffdc00,
+      0 0 160px #ffdc00, 0 0 320px #ffdc00;
+  }
+
   100% {
     color: #fff;
     text-shadow: 0 0 10px #ffdc00, 0 0 20px #ffdc00, 0 0 40px #ffdc00,
