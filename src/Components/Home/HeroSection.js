@@ -19,22 +19,26 @@ const TitleWrapper = styled.div`
   align-items: center;
   justify-content: center;
   opacity: ${({ titleOpacity }) => titleOpacity};
+  transition: opacity 0.6s ease-in-out;
 `
 
 const Title = styled.div`
   color: #130d0a;
   font-family: league;
   font-weight: 800;
-  font-size: 72px;
+  font-size: 4rem;
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
   line-height: 0.7em;
   outline: none;
   animation: animate 2.5s ease-in-out;
   animation-fill-mode: forwards;
   transition: opacity 0.6s ease-in-out;
+  -webkit-transform: translate3d(0, 0, 0);
 `
 
-const StyledLink = styled(Link)``
+const StyledLink = styled(Link)`
+  padding: 30px;
+`
 
 const Layer = styled.div`
   background-repeat: no-repeat;
@@ -53,7 +57,17 @@ const Background = styled.div`
 
 const HeroSection = () => {
   const [offsetY, setOffsetY] = useState(0)
-  const handleScroll = () => setOffsetY(window.pageYOffset)
+  const [titleOpacity, setTitleOpacity] = useState(1)
+
+  const handleScroll = () => {
+    setOffsetY(window.pageYOffset)
+
+    if (window.scrollY >= 500) {
+      setTitleOpacity(0)
+    } else {
+      setTitleOpacity(1)
+    }
+  }
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
@@ -62,24 +76,12 @@ const HeroSection = () => {
   }, [])
 
   //Tillfällig lösning: Låser scrollen i början så det laggar mindre.
-  // useEffect(() => {
-  //   document.body.style.overflow = 'hidden'
-  //   setTimeout(() => {
-  //     document.body.style.overflowY = 'scroll'
-  //   }, 2500)
-  // }, [])
-
-  const [titleOpacity, setTitleOpacity] = useState(1)
-
-  const changeOpacity = () => {
-    if (window.scrollY >= 500) {
-      setTitleOpacity(0)
-    } else {
-      setTitleOpacity(1)
-    }
-  }
-
-  window.addEventListener('scroll', changeOpacity)
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    setTimeout(() => {
+      document.body.style.overflowY = 'scroll'
+    }, 2500)
+  }, [])
 
   return (
     <>
@@ -91,7 +93,7 @@ const HeroSection = () => {
           }}
         >
           <Title>CHALLENGER BOIS</Title>
-          <Link
+          <StyledLink
             to='dummy'
             spy={true}
             smooth={true}
@@ -99,7 +101,7 @@ const HeroSection = () => {
             onClick={() => console.log('clicked')}
           >
             Explore
-          </Link>
+          </StyledLink>
         </TitleWrapper>
 
         <Layer

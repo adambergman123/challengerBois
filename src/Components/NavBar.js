@@ -24,6 +24,7 @@ const Title = styled.div`
   outline: none;
   padding: 26px 0 0 90px;
   transition: opacity 0.6s ease-in-out;
+  -webkit-transform: translate3d(0, 0, 0);
 `
 
 const NavBar = () => {
