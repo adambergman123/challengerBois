@@ -20,7 +20,7 @@ const Title = styled.div`
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
   line-height: 0.7em;
   outline: none;
-  animation: animate 5.5s linear;
+  animation: animate 4.5s linear;
   animation-fill-mode: forwards;
 `
 
@@ -52,7 +52,11 @@ const HeroSection = () => {
   return (
     <>
       <Hero id='hero'>
-        <Title style={{ transform: `translateY(-${offsetY * 0.2}px)` }}>
+        <Title
+          style={{
+            transform: `translateY(-${offsetY * 0.2}px)`,
+          }}
+        >
           CHALLENGER BOIS
         </Title>
         <Layer
