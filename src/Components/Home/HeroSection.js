@@ -49,12 +49,15 @@ const HeroSection = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  useEffect(() => {
-    document.body.style.overflow = 'hidden'
-    setTimeout(() => {
-      document.body.style.overflowY = 'scroll'
-    }, 2500)
-  }, [])
+  // Tillfällig lösning: Låser scrollen i början så det laggar mindre.
+  // useEffect(() => {
+  //   document.body.style.overflow = 'hidden'
+  //   setTimeout(() => {
+  //     document.body.style.overflowY = 'scroll'
+  //   }, 2500)
+  // }, [])
+
+  console.log(window.scrollY)
 
   return (
     <>
