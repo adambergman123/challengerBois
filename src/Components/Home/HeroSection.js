@@ -38,13 +38,15 @@ const Title = styled.div`
   font-family: league;
   font-weight: 800;
   font-size: 4rem;
-  -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
+  //-webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
   line-height: 0.7em;
   outline: none;
   animation: animate 2.5s ease-in-out;
   animation-fill-mode: forwards;
   transition: opacity 0.6s ease-in-out;
+  transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transform: translateZ(0);
 
   @media screen and (max-width: 925px) {
     font-size: 2rem;
