@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-scroll'
 import styled from 'styled-components'
 import './HeroSection.css'
+import TitleSvg from '../../Elements/TitleSvg/TitleSvg'
 
 const Hero = styled.div`
   height: 880px;
@@ -25,7 +26,6 @@ const TitleWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  opacity: ${({ titleOpacity }) => titleOpacity};
   transition: opacity 0.6s ease-in-out;
 
   @media screen and (max-width: 925px) {
@@ -33,31 +33,13 @@ const TitleWrapper = styled.div`
   }
 `
 
-const Title = styled.div`
-  color: #130d0a;
-  font-family: league;
-  font-weight: 800;
-  font-size: 4rem;
-  //-webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
-  line-height: 0.7em;
-  outline: none;
-  animation: animate 2.5s ease-in-out;
-  animation-fill-mode: forwards;
-  transition: opacity 0.6s ease-in-out;
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  -webkit-transform: translateZ(0);
-
-  @media screen and (max-width: 925px) {
-    font-size: 2rem;
-  }
-`
-
 const StyledLink = styled(Link)`
   padding: 30px;
 `
 
-const Parallax = styled.div``
+const Parallax = styled.div`
+  z-index: 0;
+`
 
 const HeroMobile = styled.div``
 
@@ -74,20 +56,14 @@ const Background = styled.div`
   height: 2000px;
   width: 100%;
   margin-top: -5px;
+  z-index: 1;
 `
 
 const HeroSection = () => {
   const [offsetY, setOffsetY] = useState(0)
-  const [titleOpacity, setTitleOpacity] = useState(1)
 
   const handleScroll = () => {
     setOffsetY(window.pageYOffset)
-
-    if (window.scrollY >= 500) {
-      setTitleOpacity(0)
-    } else {
-      setTitleOpacity(1)
-    }
   }
 
   useEffect(() => {
@@ -96,35 +72,9 @@ const HeroSection = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  //Tillfällig lösning: Låser scrollen i början så det laggar mindre.
-  useEffect(() => {
-    document.body.style.overflow = 'hidden'
-    setTimeout(() => {
-      document.body.style.overflowY = 'scroll'
-    }, 2500)
-  }, [])
-
   return (
     <>
       <Hero id='hero'>
-        <TitleWrapper
-          titleOpacity={titleOpacity}
-          style={{
-            transform: `translateY(-${offsetY * 0.2}px)`,
-          }}
-        >
-          <Title>CHALLENGER BOIS</Title>
-          <StyledLink
-            to='dummy'
-            spy={true}
-            smooth={true}
-            duration={1000}
-            onClick={() => console.log('clicked')}
-          >
-            Explore
-          </StyledLink>
-        </TitleWrapper>
-
         <Parallax id='parallax'>
           <Layer
             className='layer-bg'
@@ -147,8 +97,21 @@ const HeroSection = () => {
             style={{ transform: `translateY(-${offsetY * 0.85}px)` }}
           ></Layer>
           <Layer
+            style={{ transform: `translateY(-${offsetY * 0.2}px)`, zIndex: 0 }}
+          >
+            <TitleWrapper>
+              <TitleSvg />
+              <StyledLink to='dummy' spy={true} smooth={true} duration={1000}>
+                Explore
+              </StyledLink>
+            </TitleWrapper>
+          </Layer>
+          <Layer
             className='layer5'
-            style={{ transform: `translateY(-${offsetY * 1.0}px)` }}
+            style={{
+              transform: `translateY(-${offsetY * 1.0}px)`,
+              zIndex: 0,
+            }}
           ></Layer>
         </Parallax>
         <HeroMobile id='heroMobile' />
