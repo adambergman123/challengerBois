@@ -58,7 +58,7 @@
 
 #heroMobile {
   display: none;
-  background: url('../../images/full_illustration.png') no-repeat center bottom /
+  background: url('../../images/full_ilu_w_adam.png') no-repeat center bottom /
     cover;
   height: 320px;
   width: 100%;
@@ -69,6 +69,8 @@
     display: none;
   }
   #heroMobile {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

@@ -22,11 +22,6 @@ const TitleWrapper = styled.div`
   position: fixed;
   margin-top: 24vh;
   margin-left: 16vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.6s ease-in-out;
 
   @media screen and (max-width: 925px) {
     margin: 0;
@@ -38,7 +33,8 @@ const StyledLink = styled(Link)`
 `
 
 const Parallax = styled.div`
-  z-index: 0;
+  width: 100%;
+  height: 100%;
 `
 
 const HeroMobile = styled.div``
@@ -74,6 +70,15 @@ const HeroSection = () => {
 
   return (
     <>
+      <StyledLink
+        to='dummy'
+        spy={true}
+        smooth={true}
+        duration={1000}
+        style={{ cursor: 'pointer', zIndex: 1000 }}
+      >
+        Explore
+      </StyledLink>
       <Hero id='hero'>
         <Parallax id='parallax'>
           <Layer
@@ -97,24 +102,24 @@ const HeroSection = () => {
             style={{ transform: `translateY(-${offsetY * 0.85}px)` }}
           ></Layer>
           <Layer
-            style={{ transform: `translateY(-${offsetY * 0.2}px)`, zIndex: 0 }}
+            style={{
+              transform: `translateY(-${offsetY * 0.25}px)`,
+            }}
           >
             <TitleWrapper>
               <TitleSvg />
-              <StyledLink to='dummy' spy={true} smooth={true} duration={1000}>
-                Explore
-              </StyledLink>
             </TitleWrapper>
           </Layer>
           <Layer
             className='layer5'
             style={{
               transform: `translateY(-${offsetY * 1.0}px)`,
-              zIndex: 0,
             }}
           ></Layer>
         </Parallax>
-        <HeroMobile id='heroMobile' />
+        <HeroMobile id='heroMobile'>
+          <TitleSvg />
+        </HeroMobile>
       </Hero>
       <Background />
       <div id='dummy'>dummydum</div>

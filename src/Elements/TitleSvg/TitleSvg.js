@@ -6,11 +6,14 @@ const Wrapper = styled.div`
   @media screen and (max-width: 1000px) {
     transform: scale(0.8);
   }
+  @media screen and (max-width: 925px) {
+    transform: scale(0.5);
+  }
   @media screen and (max-width: 800px) {
-    transform: scale(0.7);
+    transform: scale(0.4);
   }
   @media screen and (max-width: 600px) {
-    transform: scale(0.5);
+    transform: scale(0.3);
   }
 `
 
