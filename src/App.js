@@ -5,6 +5,7 @@ import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { blue, red } from '@material-ui/core/colors'
 import { Route, Switch } from 'react-router-dom'
 import Home from './Components/Home/Home'
+import Test from './Components/Test'
 import TiltComponent from './Components/Cards/Tilt'
 
 const theme = createMuiTheme({
@@ -32,6 +33,7 @@ const App = () => {
         <Application>
           <Switch>
             <Route exact path='/' component={Home} />
+            <Route exact path='/test' component={Test} />
           </Switch>
           <TiltComponent />
         </Application>
