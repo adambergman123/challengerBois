@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-scroll'
 import styled from 'styled-components'
 import './HeroSection.css'
 import TitleSvg from '../../Elements/TitleSvg/TitleSvg'
+import ArrowsDown from '../../Elements/ArrowsDown/ArrowsDown'
 
 const Hero = styled.div`
   height: 880px;
@@ -26,10 +26,6 @@ const TitleWrapper = styled.div`
   @media screen and (max-width: 925px) {
     margin: 0;
   }
-`
-
-const StyledLink = styled(Link)`
-  padding: 30px;
 `
 
 const Parallax = styled.div`
@@ -70,15 +66,7 @@ const HeroSection = () => {
 
   return (
     <>
-      <StyledLink
-        to='dummy'
-        spy={true}
-        smooth={true}
-        duration={1000}
-        style={{ cursor: 'pointer', zIndex: 1000 }}
-      >
-        Explore
-      </StyledLink>
+      <ArrowsDown />
       <Hero id='hero'>
         <Parallax id='parallax'>
           <Layer

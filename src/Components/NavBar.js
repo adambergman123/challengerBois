@@ -31,12 +31,12 @@ const NavBar = () => {
   const [navColor, setNavColor] = useState(false)
 
   const changeBgColor = debounce(() => {
-    if (window.scrollY >= 500) {
+    if (window.scrollY >= 600) {
       setNavColor(true)
     } else {
       setNavColor(false)
     }
-  }, 400)
+  }, 100)
 
   window.addEventListener('scroll', changeBgColor)
 
