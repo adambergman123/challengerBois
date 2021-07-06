@@ -74,3 +74,23 @@
     justify-content: center;
   }
 }
+@media screen and (max-width: 1650px) {
+  .layer3 {
+    background-position: 113% 135%;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .layer3 {
+    background-position: 123% 135%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .layer3 {
+    background-position: 143% 135%;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .layer3 {
+    background-position: 163% 135%;
+  }
+}

@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import './HeroSection.css'
+import { Link } from 'react-scroll'
 import TitleSvg from '../../Elements/TitleSvg/TitleSvg'
 import ArrowsDown from '../../Elements/ArrowsDown/ArrowsDown'
+
+const StyledLink = styled(Link)`
+  padding: 30px;
+  background: white;
+  position: fixed;
+  margin-top: 42vh;
+  z-index: 1;
+`
 
 const Hero = styled.div`
   height: 880px;
@@ -43,12 +52,23 @@ const Layer = styled.div`
   z-index: -1;
 `
 
+const SpecialFrontLayer = styled.div`
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 880px;
+  position: fixed;
+  z-index: 1;
+  pointer-events: none;
+  margin-top: 0px;
+`
+
 const Background = styled.div`
+  position: relative;
   background: #130d0a;
   height: 2000px;
   width: 100%;
   margin-top: -5px;
-  z-index: 1;
+  z-index: 2;
 `
 
 const HeroSection = () => {
@@ -67,6 +87,24 @@ const HeroSection = () => {
   return (
     <>
       <ArrowsDown />
+      <StyledLink
+        to='dummy'
+        spy={true}
+        smooth={true}
+        duration={1000}
+        style={{
+          cursor: 'pointer',
+          transform: `translateY(-${offsetY * 0.25}px)`,
+        }}
+      >
+        Explore
+      </StyledLink>
+      <SpecialFrontLayer
+        className='layer5'
+        style={{
+          transform: `translateY(-${offsetY * 1.0}px)`,
+        }}
+      ></SpecialFrontLayer>
       <Hero id='hero'>
         <Parallax id='parallax'>
           <Layer
@@ -98,17 +136,12 @@ const HeroSection = () => {
               <TitleSvg />
             </TitleWrapper>
           </Layer>
-          <Layer
-            className='layer5'
-            style={{
-              transform: `translateY(-${offsetY * 1.0}px)`,
-            }}
-          ></Layer>
         </Parallax>
         <HeroMobile id='heroMobile'>
           <TitleSvg />
         </HeroMobile>
       </Hero>
+
       <Background />
       <div id='dummy'>dummydum</div>
     </>
