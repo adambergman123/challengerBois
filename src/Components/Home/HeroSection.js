@@ -6,10 +6,10 @@ import TitleSvg from '../../Elements/TitleSvg/TitleSvg'
 import ArrowsDown from '../../Elements/ArrowsDown/ArrowsDown'
 
 const StyledLink = styled(Link)`
-  padding: 30px;
-  background: white;
   position: fixed;
   margin-top: 42vh;
+  margin-left: calc(16vw + 397px);
+
   z-index: 1;
 `
 
@@ -94,7 +94,7 @@ const HeroSection = () => {
         duration={1000}
         style={{
           cursor: 'pointer',
-          transform: `translateY(-${offsetY * 0.25}px)`,
+          transform: `translateY(-${offsetY * 0.25}px) translateX(-50%)`,
         }}
       >
         Explore
