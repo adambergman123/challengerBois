@@ -1,15 +1,48 @@
 import React from 'react'
 import './FancyButton.css'
+import styled from 'styled-components'
+
+const FancyButtons = styled.div``
 
 const FancyButton = ({ text, type }) => {
   return (
-    <div>
-      {type === 'fromTop' && <div class='btn from-top'>{text}</div>}
-      {type === 'fromLeft' && <div class='btn from-left'>{text}</div>}
-      {type === 'fromRight' && <div class='btn from-right'>{text}</div>}
-      {type === 'fromCenter' && <div class='btn from-center'>{text}</div>}
-      {type === 'fromBottom' && <div class='btn from-bottom'>{text}</div>}
-    </div>
+    <FancyButtons>
+      {type === 'fromTop' && (
+        <div className='background'>
+          <div className='btn from-top'>
+            <span className='text'>{text}</span>
+          </div>
+        </div>
+      )}
+      {type === 'fromLeft' && (
+        <div className='background'>
+          <div className='btn from-left'>
+            <span className='text'>{text}</span>
+          </div>
+        </div>
+      )}
+      {type === 'fromRight' && (
+        <div className='background'>
+          <div className='btn from-right'>
+            <span className='text'>{text}</span>
+          </div>
+        </div>
+      )}
+      {type === 'fromCenter' && (
+        <div className='background'>
+          <div className='btn from-center'>
+            <span className='text'>{text}</span>
+          </div>
+        </div>
+      )}
+      {type === 'fromBottom' && (
+        <div className='background'>
+          <div className='btn from-bottom'>
+            <span className='text'>{text}</span>
+          </div>
+        </div>
+      )}
+    </FancyButtons>
   )
 }
 

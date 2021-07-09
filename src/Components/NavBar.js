@@ -31,7 +31,7 @@ const NavBar = () => {
   const [navColor, setNavColor] = useState(false)
 
   const changeBgColor = debounce(() => {
-    if (window.scrollY >= 600) {
+    if (window.scrollY >= 700) {
       setNavColor(true)
     } else {
       setNavColor(false)

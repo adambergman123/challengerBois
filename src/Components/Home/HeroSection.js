@@ -3,13 +3,27 @@ import styled from 'styled-components'
 import './HeroSection.css'
 import { Link } from 'react-scroll'
 import TitleSvg from '../../Elements/TitleSvg/TitleSvg'
-import ArrowsDown from '../../Elements/ArrowsDown/ArrowsDown'
+import FancyButton from '../../Elements/FancyButton/FancyButton'
+
+const SpecialDiv = styled.div`
+  width: 100vw;
+
+  @media screen and (max-width: 1300px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`
 
 const StyledLink = styled(Link)`
   position: fixed;
   margin-top: 42vh;
-  margin-left: calc(16vw + 397px);
+  margin-left: calc(16vw + 231px);
 
+  @media screen and (max-width: 1300px) {
+    margin-left: 0;
+    margin-top: 35vh;
+  }
   z-index: 1;
 `
 
@@ -32,6 +46,9 @@ const TitleWrapper = styled.div`
   margin-top: 24vh;
   margin-left: 16vw;
 
+  @media screen and (max-width: 1300px) {
+    margin-left: 0;
+  }
   @media screen and (max-width: 925px) {
     margin: 0;
   }
@@ -50,6 +67,20 @@ const Layer = styled.div`
   height: 880px;
   position: fixed;
   z-index: -1;
+`
+
+const TitleLayer = styled.div`
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 880px;
+  position: fixed;
+  z-index: -1;
+
+  @media screen and (max-width: 1300px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const SpecialFrontLayer = styled.div`
@@ -86,25 +117,26 @@ const HeroSection = () => {
 
   return (
     <>
-      <ArrowsDown />
-      <StyledLink
-        to='dummy'
-        spy={true}
-        smooth={true}
-        duration={1000}
-        style={{
-          cursor: 'pointer',
-          transform: `translateY(-${offsetY * 0.25}px) translateX(-50%)`,
-        }}
-      >
-        Explore
-      </StyledLink>
-      <SpecialFrontLayer
-        className='layer5'
-        style={{
-          transform: `translateY(-${offsetY * 1.0}px)`,
-        }}
-      ></SpecialFrontLayer>
+      <SpecialDiv id='parallax'>
+        <StyledLink
+          to='dummy'
+          spy={true}
+          smooth={true}
+          duration={1000}
+          style={{
+            cursor: 'pointer',
+            transform: `translateY(-${offsetY * 0.25}px)`,
+          }}
+        >
+          <FancyButton text='Explore' type='fromRight' />
+        </StyledLink>
+        <SpecialFrontLayer
+          className='layer5'
+          style={{
+            transform: `translateY(-${offsetY * 1.0}px)`,
+          }}
+        ></SpecialFrontLayer>
+      </SpecialDiv>
       <Hero id='hero'>
         <Parallax id='parallax'>
           <Layer
@@ -127,7 +159,7 @@ const HeroSection = () => {
             className='layer4'
             style={{ transform: `translateY(-${offsetY * 0.85}px)` }}
           ></Layer>
-          <Layer
+          <TitleLayer
             style={{
               transform: `translateY(-${offsetY * 0.25}px)`,
             }}
@@ -135,7 +167,7 @@ const HeroSection = () => {
             <TitleWrapper>
               <TitleSvg />
             </TitleWrapper>
-          </Layer>
+          </TitleLayer>
         </Parallax>
         <HeroMobile id='heroMobile'>
           <TitleSvg />
