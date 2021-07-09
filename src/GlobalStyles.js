@@ -12,6 +12,10 @@ const GlobalStyles = createGlobalStyle`
         padding: 0px;
     }
 
+    body {
+        background: black;
+    }
+
     body::-webkit-scrollbar-track {
         display: none;
     }

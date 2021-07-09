@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import './HeroSection.css'
-import { Link } from 'react-scroll'
+import { Link as ScrollLink } from 'react-scroll'
+import { Link as PageLink } from 'react-router-dom'
 import TitleSvg from '../../Elements/TitleSvg/TitleSvg'
 import FancyButton from '../../Elements/FancyButton/FancyButton'
 
@@ -15,7 +16,7 @@ const SpecialDiv = styled.div`
   }
 `
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(ScrollLink)`
   position: fixed;
   margin-top: 42vh;
   margin-left: calc(16vw + 231px);
@@ -25,6 +26,15 @@ const StyledLink = styled(Link)`
     margin-top: 35vh;
   }
   z-index: 1;
+`
+
+const StyledPageLink = styled(PageLink)`
+  position: absolute;
+  margin-top: 5vh;
+  z-index: 10;
+  padding: 50px;
+  background: white;
+  cursor: pointer;
 `
 
 const Hero = styled.div`
@@ -116,7 +126,8 @@ const HeroSection = () => {
   }, [])
 
   return (
-    <>
+    <div>
+      <StyledPageLink to='/test'>LINK</StyledPageLink>
       <SpecialDiv id='parallax'>
         <StyledLink
           to='dummy'
@@ -176,7 +187,7 @@ const HeroSection = () => {
 
       <Background />
       <div id='dummy'>dummydum</div>
-    </>
+    </div>
   )
 }
 

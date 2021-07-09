@@ -26,7 +26,6 @@ const Application = styled.div`
 const App = () => {
   return (
     <>
-      {/* With this component, the user automatically scrolls to the top of every loaded page */}
       <ThemeProvider theme={theme}>
         <NavBar />
         <Application>
