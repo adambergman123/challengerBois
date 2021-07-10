@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import NavBar from './Components/NavBar'
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { blue, red } from '@material-ui/core/colors'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, useLocation } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
 import Home from './Components/Home/Home'
 import Test from './Components/Test'
 
@@ -24,16 +25,21 @@ const Application = styled.div`
 `
 
 const App = () => {
+  const location = useLocation()
+
   return (
     <>
       <ThemeProvider theme={theme}>
         <NavBar />
         <Application>
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/test' component={Test} />
-          </Switch>
-          {/*<TiltComponent />*/}
+          <AnimatePresence exitBeforeEnter initial={false}>
+            <Switch location={location} key={location.pathname}>
+              {/* Ovanstående nödvändigt för att framer motion page transtion skulle fungera som det ska */}
+              <Route exact path='/' component={Home} />
+              <Route path='/test' component={Test} />
+            </Switch>
+            {/*<TiltComponent />*/}
+          </AnimatePresence>
         </Application>
         <GlobalStyles />
       </ThemeProvider>

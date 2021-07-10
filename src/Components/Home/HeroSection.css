@@ -2,7 +2,7 @@
   src: url('../../Fonts/Friz\ Quadrata\ Regular.ttf');
   font-family: league;
 }
-
+/* 
 @keyframes animate {
   0% {
     color: '#0e3742';
@@ -20,7 +20,7 @@
       0 0 80px #ffdc00, 0 0 160px #ffdc00;
     animation-play-state: paused;
   }
-}
+} */
 
 .layer-bg {
   background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/272781/ilu_bg.jpg');
@@ -48,12 +48,9 @@
   background-size: auto;
 }
 .layer5 {
-  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/272781/ilu_01.png');
+  background-image: url('../../images/ilu_01_long.png');
   background-position: bottom center;
   background-size: auto;
-  -webkit-box-shadow: 0px 50px 16px 9px #130d0a;
-  box-shadow: 0px 50px 16px 9px #130d0a;
-  -webkit-transform: translate3d(0, 0, 0);
 }
 
 #heroMobile {

@@ -1,11 +1,20 @@
 import React from 'react'
-import FancyButton from '../Elements/FancyButton/FancyButton'
+import { Link as PageLink } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { transition } from '../GlobalStyles'
 
 const Test = () => {
   return (
-    <div>
-      <FancyButton text='Explore' type='fromRight' />
-    </div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
+    >
+      <PageLink style={{ background: 'white', padding: '800px' }} to='/'>
+        Home
+      </PageLink>
+    </motion.div>
   )
 }
 
