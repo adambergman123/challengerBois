@@ -16,7 +16,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        background: black;
+        background: #140e09;
     }
 
     body::-webkit-scrollbar-track {

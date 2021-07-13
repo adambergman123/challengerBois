@@ -4,6 +4,7 @@ import './HeroSection.css'
 import { Link as ScrollLink } from 'react-scroll'
 import TitleSvg from '../../Elements/TitleSvg/TitleSvg'
 import FancyButton from '../../Elements/FancyButton/FancyButton'
+import HeroMobile from './HeroMobile'
 
 const SpecialDiv = styled.div`
   width: 100vw;
@@ -12,6 +13,21 @@ const SpecialDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  @media screen and (max-width: 925px) {
+    display: none;
+  }
+`
+const Background = styled.div`
+  position: relative;
+  background: #130d0a;
+  height: 2000px;
+  width: 100%;
+  margin-top: 70px;
+  z-index: 2;
+
+  @media screen and (max-width: 925px) {
+    display: none;
   }
 `
 
@@ -59,8 +75,6 @@ const Parallax = styled.div`
   height: 100%;
 `
 
-const HeroMobile = styled.div``
-
 const Layer = styled.div`
   background-repeat: no-repeat;
   width: 100%;
@@ -91,9 +105,13 @@ const SpecialFrontLayer = styled.div`
   z-index: 1;
   pointer-events: none;
   margin-top: 240px;
+
+  @media screen and (max-width: 1300px) {
+    margin-top: 160px;
+  }
 `
 
-const HeroSection = () => {
+const HeroSection = ({ loading }) => {
   const [offsetY, setOffsetY] = useState(0)
 
   const handleScroll = () => {
@@ -108,7 +126,7 @@ const HeroSection = () => {
 
   return (
     <div>
-      <SpecialDiv id='parallax'>
+      <SpecialDiv>
         <StyledLink
           to='dummy'
           spy={true}
@@ -155,17 +173,12 @@ const HeroSection = () => {
               transform: `translateY(-${offsetY * 0.25}px)`,
             }}
           >
-            <TitleWrapper>
-              <TitleSvg />
-            </TitleWrapper>
+            <TitleWrapper>{!loading && <TitleSvg />}</TitleWrapper>
           </TitleLayer>
         </Parallax>
-        <HeroMobile id='heroMobile'>
-          <TitleSvg />
-        </HeroMobile>
+        <HeroMobile />
       </Hero>
-
-      <div id='dummy'>dummydum</div>
+      <Background />
     </div>
   )
 }

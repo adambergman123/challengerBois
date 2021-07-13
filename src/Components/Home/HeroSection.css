@@ -58,7 +58,7 @@
   background: url('../../images/full_ilu_w_adam.png') no-repeat center bottom /
     cover;
   height: 320px;
-  width: 100%;
+  width: 100vw;
 }
 
 @media screen and (max-width: 925px) {
@@ -67,6 +67,7 @@
   }
   #heroMobile {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
