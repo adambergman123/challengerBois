@@ -1,8 +1,16 @@
 import React from 'react'
-import Cards from '../Cards/Cards'
 import HeroSection from './HeroSection'
 import { motion } from 'framer-motion'
-import { transition } from '../../GlobalStyles'
+import styled from 'styled-components'
+
+const Background = styled.div`
+  position: relative;
+  background: #130d0a;
+  height: 2000px;
+  width: 100%;
+  margin-top: 70px;
+  z-index: 2;
+`
 
 const Home = () => {
   return (
@@ -13,9 +21,7 @@ const Home = () => {
       transition={{ duration: 1.4, ease: 'easeInOut' }}
     >
       <HeroSection />
-      <div>
-        <Cards />
-      </div>
+      <Background />
     </motion.div>
   )
 }

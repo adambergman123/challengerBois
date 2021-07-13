@@ -93,15 +93,6 @@ const SpecialFrontLayer = styled.div`
   margin-top: 240px;
 `
 
-const Background = styled.div`
-  position: relative;
-  background: #130d0a;
-  height: 2000px;
-  width: 100%;
-  margin-top: 70px;
-  z-index: 2;
-`
-
 const HeroSection = () => {
   const [offsetY, setOffsetY] = useState(0)
 
@@ -174,7 +165,6 @@ const HeroSection = () => {
         </HeroMobile>
       </Hero>
 
-      <Background />
       <div id='dummy'>dummydum</div>
     </div>
   )

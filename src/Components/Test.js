@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link as PageLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { transition } from '../GlobalStyles'
+import Cards from './Cards/Cards'
 
 const Test = () => {
   return (
@@ -14,6 +14,9 @@ const Test = () => {
       <PageLink style={{ background: 'white', padding: '800px' }} to='/'>
         Home
       </PageLink>
+      <div>
+        <Cards />
+      </div>
     </motion.div>
   )
 }
