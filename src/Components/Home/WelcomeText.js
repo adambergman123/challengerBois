@@ -36,7 +36,7 @@ const WelcomeContent = styled.div`
 `
 
 const WelcomeText = () => {
-  const [titleRef, inView] = useInView()
+  const [titleRef, inView] = useInView({ threshold: 0.4 })
   const title1Animation = useAnimation()
   const title2Animation = useAnimation()
 
