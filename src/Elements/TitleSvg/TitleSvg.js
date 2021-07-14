@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   @media screen and (max-width: 800px) {
     transform: scale(0.4);
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 500px) {
     transform: scale(0.3);
   }
 `

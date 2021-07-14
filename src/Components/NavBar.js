@@ -13,6 +13,7 @@ const Nav = styled.div`
   transition: all 0.3s ease-in-out;
   border-radius: 4px;
 `
+
 const NavContent = styled.div`
   width: 100%;
   height: 100%;
@@ -28,9 +29,14 @@ const Title = styled.div`
   font-weight: 800;
   font-size: 30px;
   outline: none;
-  padding: 31px 0 0 90px;
+  padding: 21px 0 0 90px;
   transition: opacity 0.3s ease-in-out;
   -webkit-transform: translate3d(0, 0, 0);
+
+  @media screen and (max-width: 1250px) {
+    font-size: 24px;
+    padding-left: 45px;
+  }
 `
 
 const StyledPageLink = styled(PageLink)`

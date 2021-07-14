@@ -2,11 +2,20 @@ import React from 'react'
 import './FancyButton.css'
 import styled from 'styled-components'
 
-const FancyButtons = styled.div``
+const FancyButtons = styled.div`
+  transform: ${({ small }) => small && 'scale(0.6) translateY(-110px)'};
 
-const FancyButton = ({ text, type }) => {
+  @media screen and (max-width: 800px) {
+    transform: ${({ small }) => small && 'scale(0.6) translateY(-130px)'};
+  }
+  @media screen and (max-width: 500px) {
+    transform: ${({ small }) => small && 'scale(0.5) translateY(-180px)'};
+  }
+`
+
+const FancyButton = ({ text, type, small }) => {
   return (
-    <FancyButtons>
+    <FancyButtons small={small}>
       {type === 'fromTop' && (
         <div className='background'>
           <div className='btn from-top'>
