@@ -8,6 +8,7 @@ import { AnimatePresence } from 'framer-motion'
 import Home from './Components/Home/Home'
 import Test from './Components/Test'
 import Highlights from './Components/Highlights/Highlights'
+import About from './Components/About/About'
 
 const theme = createMuiTheme({
   palette: {
@@ -39,6 +40,7 @@ const App = () => {
               <Route exact path='/' component={Home} />
               <Route path='/test' component={Test} />
               <Route path='/highlights' component={Highlights} />
+              <Route path='/about' component={About} />
             </Switch>
             {/*<TiltComponent />*/}
           </AnimatePresence>

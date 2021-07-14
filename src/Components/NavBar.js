@@ -5,6 +5,7 @@ import { Link as PageLink } from 'react-router-dom'
 import TestIcon from '../Icons/TestIcon'
 import FilmIcon from '../Icons/FilmIcon'
 import HamburgerIcon from '../Icons/HamburgerIcon'
+import InformationIcon from '../Icons/InformationIcon'
 
 const Nav = styled.div`
   height: 80px;
@@ -21,10 +22,10 @@ const NavContent = styled.div`
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 30% 50% 10% 10%;
+  grid-template-columns: 30% 41% 9% 9% 9% 2%;
 
   @media screen and (max-width: 1200px) {
-    grid-template-columns: 30% 40% 15% 15%;
+    grid-template-columns: 30% 26% 14% 14% 14% 2%;
   }
   @media screen and (max-width: 650px) {
     display: none;
@@ -41,6 +42,7 @@ const Title = styled.div`
   outline: none;
   padding: 21px 0 0 90px;
   transition: opacity 0.3s ease-in-out;
+  transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
 
   @media screen and (max-width: 1250px) {
@@ -123,6 +125,12 @@ const NavBar = () => {
               <div className='ml-1'>Testing</div>
             </div>
           </StyledPageLink>
+          <StyledPageLink to='/about' className='text-gray-100'>
+            <div className='flex justify-center hover:bg-yellow-700 hover:bg-opacity-50 transition rounded p-2'>
+              <InformationIcon />
+              <div className='ml-1'>About</div>
+            </div>
+          </StyledPageLink>
         </NavContent>
       </Nav>
       <HamburgerIconWrapper onClick={() => setShowDropdown(!showDropdown)}>
@@ -131,6 +139,7 @@ const NavBar = () => {
       <Dropdown
         showDropdown={showDropdown}
         onClick={() => setShowDropdown(false)}
+        className='font-'
       >
         <StyledPageLink to='/' className='text-gray-100'>
           <div className='flex justify-center hover:bg-yellow-700 hover:bg-opacity-50 transition rounded p-2'>
@@ -147,6 +156,12 @@ const NavBar = () => {
           <div className='flex justify-center hover:bg-yellow-700 hover:bg-opacity-50 transition rounded p-2'>
             <TestIcon />
             <div className='ml-1'>Testing</div>
+          </div>
+        </StyledPageLink>
+        <StyledPageLink to='/about' className='text-gray-100'>
+          <div className='flex justify-center hover:bg-yellow-700 hover:bg-opacity-50 transition rounded p-2'>
+            <InformationIcon />
+            <div className='ml-1'>About</div>
           </div>
         </StyledPageLink>
       </Dropdown>

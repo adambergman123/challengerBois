@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import HeroSection from './HeroSection'
 import LoadingScreen from '../LoadingScreen'
+import WelcomeText from './WelcomeText'
 
 const Home = () => {
   const [loading, SetLoading] = useState(
@@ -30,7 +31,11 @@ const Home = () => {
         transition={{ duration: 1.4, ease: 'easeInOut' }}
       >
         <HeroSection loading={loading} />
-        <div id='dummy'>dummydum</div>
+
+        <WelcomeText />
+        <div id='dummy' style={{ color: 'white' }}>
+          dummydum
+        </div>
       </motion.div>
     </>
   )
