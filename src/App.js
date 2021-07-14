@@ -7,6 +7,7 @@ import { Route, Switch, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import Home from './Components/Home/Home'
 import Test from './Components/Test'
+import Highlights from './Components/Highlights/Highlights'
 
 const theme = createMuiTheme({
   palette: {
@@ -37,6 +38,7 @@ const App = () => {
               {/* Ovanstående nödvändigt för att framer motion page transtion skulle fungera som det ska */}
               <Route exact path='/' component={Home} />
               <Route path='/test' component={Test} />
+              <Route path='/highlights' component={Highlights} />
             </Switch>
             {/*<TiltComponent />*/}
           </AnimatePresence>

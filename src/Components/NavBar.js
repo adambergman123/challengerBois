@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { debounce } from 'lodash'
 import styled from 'styled-components'
 import { Link as PageLink } from 'react-router-dom'
+import TestIcon from '../Icons/TestIcon'
+import FilmIcon from '../Icons/FilmIcon'
+import HamburgerIcon from '../Icons/HamburgerIcon'
 
 const Nav = styled.div`
   height: 80px;
@@ -18,7 +21,14 @@ const NavContent = styled.div`
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 30% 60% 10%;
+  grid-template-columns: 30% 50% 10% 10%;
+
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: 30% 40% 15% 15%;
+  }
+  @media screen and (max-width: 650px) {
+    display: none;
+  }
 `
 
 const Title = styled.div`
@@ -40,14 +50,48 @@ const Title = styled.div`
 `
 
 const StyledPageLink = styled(PageLink)`
-  text-align: center;
-  padding-top: 25px;
-  background: white;
+  margin-top: 20px;
   cursor: pointer;
+
+  @media screen and (max-width: 925px) {
+    margin-top: 8px;
+    font-size: 0.8rem;
+  }
+`
+
+const HamburgerIconWrapper = styled.div`
+  display: none;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  cursor: pointer;
+
+  @media screen and (max-width: 650px) {
+    display: block;
+  }
+`
+
+const Dropdown = styled.div`
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.6, 0.01, -0.05, 0.9);
+  position: absolute;
+  z-index: 999;
+  height: 100vh;
+  width: 100vw;
+  background: pink;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  transform: ${({ showDropdown }) =>
+    showDropdown ? `translateY(${0})` : `translateY(${-110}vh)`};
 `
 
 const NavBar = () => {
   const [navColor, setNavColor] = useState(false)
+  const [showDropdown, setShowDropdown] = useState(false)
 
   const changeBgColor = debounce(() => {
     if (window.scrollY >= 700) {
@@ -60,15 +104,53 @@ const NavBar = () => {
   window.addEventListener('scroll', changeBgColor)
 
   return (
-    <Nav navColor={navColor}>
-      <NavContent>
-        <Title style={{ opacity: `${navColor ? 1 : 0}` }}>
-          CHALLENGER BOIS
-        </Title>
-        <div></div>
-        <StyledPageLink to='/test'>LINK</StyledPageLink>
-      </NavContent>
-    </Nav>
+    <>
+      <Nav navColor={navColor}>
+        <NavContent>
+          <Title style={{ opacity: `${navColor ? 1 : 0}` }}>
+            CHALLENGER BOIS
+          </Title>
+          <div></div>
+          <StyledPageLink to='/highlights' className='text-gray-100'>
+            <div className='flex justify-center hover:bg-yellow-700 hover:bg-opacity-50 transition rounded p-2'>
+              <FilmIcon />
+              <div className='ml-1'>Highlights</div>
+            </div>
+          </StyledPageLink>
+          <StyledPageLink to='/test' className='text-gray-100'>
+            <div className='flex justify-center hover:bg-yellow-700 hover:bg-opacity-50 transition rounded p-2'>
+              <TestIcon />
+              <div className='ml-1'>Testing</div>
+            </div>
+          </StyledPageLink>
+        </NavContent>
+      </Nav>
+      <HamburgerIconWrapper onClick={() => setShowDropdown(!showDropdown)}>
+        <HamburgerIcon />
+      </HamburgerIconWrapper>
+      <Dropdown
+        showDropdown={showDropdown}
+        onClick={() => setShowDropdown(false)}
+      >
+        <StyledPageLink to='/' className='text-gray-100'>
+          <div className='flex justify-center hover:bg-yellow-700 hover:bg-opacity-50 transition rounded p-2'>
+            <div className='ml-1'>Home</div>
+          </div>
+        </StyledPageLink>
+        <StyledPageLink to='/highlights' className='text-gray-100'>
+          <div className='flex justify-center hover:bg-yellow-700 hover:bg-opacity-50 transition rounded p-2'>
+            <FilmIcon />
+            <div className='ml-1'>Highlights</div>
+          </div>
+        </StyledPageLink>
+        <StyledPageLink to='/test' className='text-gray-100'>
+          <div className='flex justify-center hover:bg-yellow-700 hover:bg-opacity-50 transition rounded p-2'>
+            <TestIcon />
+            <div className='ml-1'>Testing</div>
+          </div>
+        </StyledPageLink>
+      </Dropdown>
+    </>
   )
 }
 

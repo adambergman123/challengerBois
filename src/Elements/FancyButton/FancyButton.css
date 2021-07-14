@@ -43,7 +43,7 @@
 .text {
   font-family: 'Playfair Display', serif;
   /* font-family: league; */
-  padding: 1.4rem 4.2rem;
+  padding: 1.25rem 4.1rem;
   padding-right: 3.1rem;
   font-size: 1.4rem;
   color: var(--inv);
