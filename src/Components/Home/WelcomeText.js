@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { useInView } from 'react-intersection-observer'
 import { motion, useAnimation } from 'framer-motion'
+import './WelcomeText.css'
 
 const WelcomeWrapper = styled.div`
   position: relative;
@@ -11,12 +12,16 @@ const WelcomeWrapper = styled.div`
   z-index: 100;
   height: 1400px;
   font-family: 'Playfair Display', serif;
-
-  background-image: url('../../images/Daco.png');
-  background-repeat: no-repeat;
-  background-size: 100%;
 `
+
+const WelcomeWrapperContent = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+`
+
 const TitleWrapper = styled.div`
+  padding-top: 350px;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -69,6 +74,9 @@ const WelcomeText = () => {
 
   return (
     <WelcomeWrapper>
+      <WelcomeWrapperContent className='welcomeWrapper'>
+        {' '}
+      </WelcomeWrapperContent>
       <TitleWrapper ref={titleRef}>
         <Title1 animate={title1Animation}>Boys Who Challenge...</Title1>
         <Title2 animate={title2Animation}>...The Unknown</Title2>
