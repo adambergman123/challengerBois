@@ -21,7 +21,7 @@ const SpecialDiv = styled.div`
 const Background = styled.div`
   position: relative;
   background: #130d0a;
-  height: 200px;
+  height: 250px;
   width: 100%;
   margin-top: 70px;
   z-index: 2;

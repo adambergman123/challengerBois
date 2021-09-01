@@ -11,6 +11,10 @@ const WelcomeWrapper = styled.div`
   z-index: 100;
   height: 1400px;
   font-family: 'Playfair Display', serif;
+
+  background-image: url('../../images/Daco.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
 `
 const TitleWrapper = styled.div`
   width: 100vw;
@@ -23,11 +27,13 @@ const Title1 = styled(motion.div)`
   font-family: leagueItalic;
   font-size: 4rem;
   margin-right: 22vw;
+  transform: translate3d(0, 0, 0);
 `
 const Title2 = styled(motion.div)`
   font-family: leagueItalic;
   font-size: 4rem;
   margin-left: 22vw;
+  transform: translate3d(0, 0, 0);
 `
 
 const WelcomeContent = styled.div`
@@ -44,11 +50,11 @@ const WelcomeText = () => {
     if (inView) {
       title1Animation.start({
         x: 0,
-        transition: { duration: 1 },
+        transition: { ease: 'easeInOut', duration: 2 },
       })
       title2Animation.start({
         x: 0,
-        transition: { duration: 1 },
+        transition: { ease: 'easeInOut', duration: 2, delay: 1.3 },
       })
     }
     if (!inView) {

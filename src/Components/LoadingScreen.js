@@ -6,7 +6,7 @@ const LoadingScreenWrapper = styled.div`
   z-index: ${({ $loading }) => ($loading ? 1000 : -1)};
   position: fixed;
   width: 100vw;
-  height: 105vh;
+  height: 110vh;
   background: #0b0b0b;
   display: flex;
   flex-direction: column;

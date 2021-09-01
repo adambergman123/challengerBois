@@ -17,6 +17,7 @@ const GlobalStyles = createGlobalStyle`
 
     body {
         background: #140e09;
+        overflow-x: hidden;
     }
 
     body::-webkit-scrollbar-track {
