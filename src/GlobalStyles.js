@@ -10,13 +10,13 @@ const GlobalStyles = createGlobalStyle`
     }
 
     * {
-        font-family: 'Roboto';
+        font-family: Wotfard;
         margin: 0px;
         padding: 0px;
     }
 
     body {
-        background: #140e09;
+        background: #130d0a;
         overflow-x: hidden;
     }
 

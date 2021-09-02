@@ -34,10 +34,8 @@ const NavContent = styled.div`
 
 const Title = styled.div`
   color: #fff;
-  text-shadow: 0 0 5px #ffdc00, 0 0 10px #ffdc00, 0 0 20px #ffdc00,
-    0 0 40px #ffdc00;
-  font-family: league;
-  font-weight: 800;
+  text-shadow: 0 0 5px #ffdc00, 0 0 20px #ffdc00;
+  font-family: Wotfard-SemiBold;
   font-size: 30px;
   outline: none;
   padding: 21px 0 0 90px;

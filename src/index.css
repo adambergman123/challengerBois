@@ -12,3 +12,28 @@
   src: url('./Fonts/Friz\ Quadrata\ Regular.ttf');
   font-family: league;
 }
+
+@font-face {
+  src: url('./Fonts/Inter-VariableFont_slnt,wght.ttf');
+  font-family: Inter;
+}
+
+@font-face {
+  src: url('./Fonts/Wotfard-Regular.ttf');
+  font-family: Wotfard;
+}
+
+@font-face {
+  src: url('./Fonts/Wotfard-Bold.ttf');
+  font-family: Wotfard-Bold;
+}
+
+@font-face {
+  src: url('./Fonts/Wotfard-BoldItalic.ttf');
+  font-family: Wotfard-Bold-Italic;
+}
+
+@font-face {
+  src: url('./Fonts/Wotfard-SemiBold.ttf');
+  font-family: Wotfard-SemiBold;
+}

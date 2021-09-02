@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useInView } from 'react-intersection-observer'
 import { motion, useAnimation } from 'framer-motion'
 import './WelcomeText.css'
+import { CgArrowLongDownC } from 'react-icons/cg'
 
 const WelcomeWrapper = styled.div`
   position: relative;
@@ -15,7 +16,7 @@ const WelcomeWrapper = styled.div`
 `
 
 const WelcomeWrapperContent = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 100%;
   position: absolute;
 `
@@ -29,21 +30,53 @@ const TitleWrapper = styled.div`
   justify-content: center;
 `
 const Title1 = styled(motion.div)`
-  font-family: leagueItalic;
+  font-family: Wotfard-Bold-Italic;
   font-size: 4rem;
   margin-right: 22vw;
   transform: translate3d(0, 0, 0);
+
+  @media screen and (max-width: 1200px) {
+    font-size: 3rem;
+  }
+  @media screen and (max-width: 1200px) {
+    font-size: 2rem;
+  }
 `
 const Title2 = styled(motion.div)`
-  font-family: leagueItalic;
+  font-family: Wotfard-Bold-Italic;
   font-size: 4rem;
   margin-left: 22vw;
   transform: translate3d(0, 0, 0);
+
+  @media screen and (max-width: 1200px) {
+    font-size: 3rem;
+  }
+  @media screen and (max-width: 1200px) {
+    font-size: 2rem;
+  }
 `
 
 const WelcomeContent = styled.div`
+  padding-top: 80px;
+  height: 500px;
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 12% 38% 48% 2%;
+`
+
+const SubHeader = styled.div`
+  padding-top: 80px;
+  grid-column: 2;
+  font-size: 24px;
+
+  @media screen and (max-width: 1200px) {
+    padding-top: 20px;
+  }
+`
+const ScrollDown = styled.div`
+  padding-top: 24px;
+  font-family: Wotfard-SemiBold;
+  display: flex;
+  align-items: center;
 `
 
 const WelcomeText = () => {
@@ -74,20 +107,22 @@ const WelcomeText = () => {
 
   return (
     <WelcomeWrapper>
-      <WelcomeWrapperContent className='welcomeWrapper'>
-        {' '}
-      </WelcomeWrapperContent>
-      <TitleWrapper ref={titleRef}>
+      <WelcomeWrapperContent className='welcomeWrapper'></WelcomeWrapperContent>
+      <TitleWrapper ref={titleRef} id='dummy'>
         <Title1 animate={title1Animation}>Boys Who Challenge...</Title1>
         <Title2 animate={title2Animation}>...The Unknown</Title2>
       </TitleWrapper>
       <WelcomeContent>
-        <div>
-          Hi and welcome to challenger bois. kanske quotes och bilder på boisen
-          på olika champions. . Hi and welcome to challenger bois. kanske quotes
-          och bilder på boisen på olika champions. .
-        </div>
-        <div>henke: imorgon är det fredag</div>
+        <SubHeader>
+          Hej och välkommen till hemsidan för Challenger boisen. Vi består av
+          ett antal pojkar vars gemensamma mål är att nå challenger. Det går
+          bättre för vissa än andra.
+          <ScrollDown className='text-pink-600'>
+            Scrolla ner för att läsa mer om boisen.
+            <CgArrowLongDownC size='50px' className='animate-bounce' />
+          </ScrollDown>
+        </SubHeader>
+        <div className='challengerImage' />
       </WelcomeContent>
     </WelcomeWrapper>
   )

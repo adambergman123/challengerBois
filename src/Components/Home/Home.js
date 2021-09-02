@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import HeroSection from './HeroSection'
 import LoadingScreen from '../LoadingScreen'
 import WelcomeText from './WelcomeText'
+import Boisen from './Boisen'
 
 const Home = () => {
   const [loading, SetLoading] = useState(
@@ -11,6 +12,7 @@ const Home = () => {
 
   const loadingFinished = () => {
     SetLoading(false)
+    window.scrollTo(0, 0)
   }
 
   useEffect(() => {
@@ -33,9 +35,8 @@ const Home = () => {
         <HeroSection loading={loading} />
 
         <WelcomeText />
-        <div id='dummy' style={{ color: 'white' }}>
-          dummydum
-        </div>
+
+        <Boisen />
       </motion.div>
     </>
   )
