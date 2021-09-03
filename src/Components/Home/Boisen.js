@@ -9,11 +9,7 @@ const Wrapper = styled.div`
 `
 
 const Boisen = () => {
-  return (
-    <Wrapper>
-      <div className='spacer waveLayer1'></div>
-    </Wrapper>
-  )
+  return <Wrapper></Wrapper>
 }
 
 export default Boisen
