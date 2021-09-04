@@ -6,6 +6,7 @@ import TestIcon from '../Icons/TestIcon'
 import FilmIcon from '../Icons/FilmIcon'
 import HamburgerIcon from '../Icons/HamburgerIcon'
 import InformationIcon from '../Icons/InformationIcon'
+import './Navbar.css'
 
 const Nav = styled.div`
   height: 80px;
@@ -112,21 +113,21 @@ const NavBar = () => {
           </Title>
           <div></div>
           <StyledPageLink to='/highlights' className='text-gray-100'>
-            <div className='flex justify-center hover:bg-yellow-700 hover:bg-opacity-50 transition rounded p-2'>
+            <div className='glassButton flex justify-center  transition rounded-lg p-2'>
               <FilmIcon />
-              <div className='ml-1'>Highlights</div>
+              <div className='linkText ml-1'>Highlights</div>
             </div>
           </StyledPageLink>
           <StyledPageLink to='/test' className='text-gray-100'>
-            <div className='flex justify-center hover:bg-yellow-700 hover:bg-opacity-50 transition rounded p-2'>
+            <div className='glassButton flex justify-center  transition rounded-lg p-2'>
               <TestIcon />
-              <div className='ml-1'>Testing</div>
+              <div className='linkText ml-1'>Testing</div>
             </div>
           </StyledPageLink>
           <StyledPageLink to='/about' className='text-gray-100'>
-            <div className='flex justify-center hover:bg-yellow-700 hover:bg-opacity-50 transition rounded p-2'>
+            <div className='glassButton flex justify-center transition rounded-lg p-2'>
               <InformationIcon />
-              <div className='ml-1'>About</div>
+              <div className='linkText ml-1'>About</div>
             </div>
           </StyledPageLink>
         </NavContent>
