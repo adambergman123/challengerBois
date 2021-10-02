@@ -1,7 +1,50 @@
-.axelImage {
-  background-image: url('../../images/axelDarius.png');
-  background-size: contain;
+.boisImage {
+  background-image: url('../../images/boisImage.png');
+  background-size: cover;
   background-repeat: no-repeat;
+
+  animation-name: panLeft;
+  animation-duration: 28s;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.2, 0.2, 1, 1);
+  overflow-x: visible;
+}
+
+.boisImage:hover {
+  //animation-play-state: paused;
+}
+
+@keyframes panLeft {
+  from {
+    transform: translateX(40vw);
+  }
+  to {
+    transform: translateX(-40vw);
+  }
+}
+
+.addFog {
+  background-image: url('../../images/dacoInverst.png');
+  background-size: 90%;
+  background-repeat: no-repeat;
+  animation: move 20s infinite;
+  margin-top: -250px;
+}
+
+@keyframes move {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(50px, 0, 0) scale(1.1);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
 }
 
 .glass {

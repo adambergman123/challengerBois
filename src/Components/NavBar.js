@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { debounce } from 'lodash'
 import styled from 'styled-components'
-import { Link as PageLink } from 'react-router-dom'
+import { Link as PageLink, useHistory } from 'react-router-dom'
 import TestIcon from '../Icons/TestIcon'
 import FilmIcon from '../Icons/FilmIcon'
 import HamburgerIcon from '../Icons/HamburgerIcon'
@@ -44,6 +44,8 @@ const Title = styled.div`
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
 
+  cursor: ${({ navColor }) => (navColor ? 'pointer' : 'default')}; // funkar ej
+
   @media screen and (max-width: 1250px) {
     font-size: 24px;
     padding-left: 45px;
@@ -76,11 +78,12 @@ const HamburgerIconWrapper = styled.div`
 const Dropdown = styled.div`
   transition-duration: 0.6s;
   transition-timing-function: cubic-bezier(0.6, 0.01, -0.05, 0.9);
-  position: absolute;
+  position: fixed;
   z-index: 999;
   height: 100vh;
   width: 100vw;
-  background: pink;
+  background: black;
+  opacity: 0.95;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -91,6 +94,8 @@ const Dropdown = styled.div`
 `
 
 const NavBar = () => {
+  let history = useHistory()
+
   const [navColor, setNavColor] = useState(false)
   const [showDropdown, setShowDropdown] = useState(false)
 
@@ -104,11 +109,18 @@ const NavBar = () => {
 
   window.addEventListener('scroll', changeBgColor)
 
+  const handleTitleClick = () => {
+    navColor && history.push('/')
+  }
+
   return (
     <>
       <Nav navColor={navColor}>
         <NavContent>
-          <Title style={{ opacity: `${navColor ? 1 : 0}` }}>
+          <Title
+            onClick={handleTitleClick}
+            style={{ opacity: `${navColor ? 1 : 0}` }}
+          >
             CHALLENGER BOIS
           </Title>
           <div></div>
@@ -121,7 +133,7 @@ const NavBar = () => {
           <StyledPageLink to='/test' className='text-gray-100'>
             <div className='glassButton flex justify-center  transition rounded-lg p-2'>
               <TestIcon />
-              <div className='linkText ml-1'>Testing</div>
+              <div className='linkText ml-1'>Boisen</div>
             </div>
           </StyledPageLink>
           <StyledPageLink to='/about' className='text-gray-100'>
@@ -133,34 +145,33 @@ const NavBar = () => {
         </NavContent>
       </Nav>
       <HamburgerIconWrapper onClick={() => setShowDropdown(!showDropdown)}>
-        <HamburgerIcon />
+        <HamburgerIcon style={{ color: '#F4A261' }} />
       </HamburgerIconWrapper>
       <Dropdown
         showDropdown={showDropdown}
         onClick={() => setShowDropdown(false)}
-        className='font-'
       >
         <StyledPageLink to='/' className='text-gray-100'>
-          <div className='flex justify-center hover:bg-yellow-700 hover:bg-opacity-50 transition rounded p-2'>
-            <div className='ml-1'>Home</div>
+          <div className='glassButton flex justify-center  transition rounded-lg p-2'>
+            <div className='linkText ml-1'>Home</div>
           </div>
         </StyledPageLink>
         <StyledPageLink to='/highlights' className='text-gray-100'>
-          <div className='flex justify-center hover:bg-yellow-700 hover:bg-opacity-50 transition rounded p-2'>
+          <div className='glassButton flex justify-center  transition rounded-lg p-2'>
             <FilmIcon />
-            <div className='ml-1'>Highlights</div>
+            <div className='linkText ml-1'>Highlights</div>
           </div>
         </StyledPageLink>
         <StyledPageLink to='/test' className='text-gray-100'>
-          <div className='flex justify-center hover:bg-yellow-700 hover:bg-opacity-50 transition rounded p-2'>
+          <div className='glassButton flex justify-center  transition rounded-lg p-2'>
             <TestIcon />
-            <div className='ml-1'>Testing</div>
+            <div className='linkText ml-1'>Boisen</div>
           </div>
         </StyledPageLink>
         <StyledPageLink to='/about' className='text-gray-100'>
-          <div className='flex justify-center hover:bg-yellow-700 hover:bg-opacity-50 transition rounded p-2'>
+          <div className='glassButton flex justify-center transition rounded-lg p-2'>
             <InformationIcon />
-            <div className='ml-1'>About</div>
+            <div className='linkText ml-1'>About</div>
           </div>
         </StyledPageLink>
       </Dropdown>

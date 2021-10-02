@@ -11,7 +11,7 @@ const WelcomeWrapper = styled.div`
   background: #130d0a;
   width: 100vw;
   z-index: 100;
-  height: 1400px;
+  height: 1050px;
   font-family: 'Playfair Display', serif;
 `
 

@@ -12,7 +12,6 @@ const Home = () => {
 
   const loadingFinished = () => {
     SetLoading(false)
-    window.scrollTo(0, 0)
   }
 
   useEffect(() => {

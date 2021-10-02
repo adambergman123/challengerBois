@@ -4,6 +4,7 @@ import NavBar from './Components/NavBar'
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { blue, red } from '@material-ui/core/colors'
 import { Route, Switch, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import Home from './Components/Home/Home'
 import Test from './Components/Test'
@@ -28,6 +29,10 @@ const Application = styled.div`
 
 const App = () => {
   const location = useLocation()
+
+  useEffect(() => {
+    window.scroll(0, 0)
+  }, [location.pathname])
 
   return (
     <>

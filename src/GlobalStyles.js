@@ -22,6 +22,7 @@ const GlobalStyles = createGlobalStyle`
 
     body::-webkit-scrollbar-track {
         display: none;
+
     }
 
     body::-webkit-scrollbar {
